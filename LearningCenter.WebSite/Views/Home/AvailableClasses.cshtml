@@ -1,0 +1,45 @@
+﻿@model LearningCenter.WebSite.Models.EnrollInClassViewModel
+
+@{
+    //ViewBag.Title = Model.Classes;
+    ViewBag.Title = "Enroll In Class";
+}
+
+<h2>@("Enroll In Class") </h2>
+
+@if (Model.Classes != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                "Name"
+            </th>
+            <th>
+                "Decription"
+            </th>
+            <th>
+                "Price"
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Classes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.ActionLink("Enroll", "EnrollInClass", new { classId = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+}

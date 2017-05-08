@@ -1,0 +1,25 @@
+﻿@model LearningCenter.WebSite.Models.ClassViewModel
+
+@{
+    ViewBag.Title = Model.Classes;
+}
+
+<h2>@("Classes") </h2>
+
+@if (Model.Classes != null)
+{
+    <table>
+        @foreach (var offeredClass in Model.Classes)
+        {
+            <tr>
+                <td>@offeredClass.Name  -  </td>
+                <td>@offeredClass.Description  -  </td>
+                <td>@string.Format("{0:C}", offeredClass.Price)</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h2>No classes found.</h2>
+}

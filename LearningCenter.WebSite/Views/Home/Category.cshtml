@@ -1,0 +1,29 @@
+﻿@model LearningCenter.WebSite.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = Model.Category.Name;
+}
+
+<h2>@Model.Category.Name</h2>
+
+@if (Model.Category.Name != null)
+{
+    <table>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Name  -  </td>
+                <td>@string.Format("{0:C}", product.Price)</td>
+                <td>@Html.ActionLink(" - Add To Cart", "AddToCart", new { id = product.Id })</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h2>No product data found.</h2>
+}
+
+
+
+
